@@ -5,7 +5,7 @@ module TwPay
   module Response
     class Pay < Base
       def qrcode
-        format_qrcode
+        @qrcode
       end
 
       def bank_transaction_id
