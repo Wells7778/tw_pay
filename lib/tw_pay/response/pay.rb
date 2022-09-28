@@ -24,8 +24,10 @@ module TwPay
         scheme = 'TWQRP://'
         host = decoder.get :language_template, :merchant_name
         path = "#{decoder.get(:tw_payment_info, :merchant_info)[0, 2]}/01/#{decoder.get(:tw_payment_info, :merchant_info)[2, 3]}"
+        amount = decoder.get(:transaction_amount)
+        amount = amount.gsub(/\./, '')
         query = {
-          D1: decoder.get(:transaction_amount),
+          D1: amount,
           D2: decoder.get(:additional_data_field, :bill_number),
           D3: decoder.get(:tw_payment_info, :merchant_info)[5, 12],
           D10: decoder.get(:transaction_currency),
