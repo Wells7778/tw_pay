@@ -37,6 +37,7 @@ module TwPay
         ary = [
           bank_transaction_id,
           bank_transaction_uid,
+          txn_type,
           refund_amount,
         ]
         ary.join()
