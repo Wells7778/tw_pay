@@ -30,7 +30,7 @@ module TwPay
           D3: decoder.get(:tw_payment_info, :merchant_info)[5, 12],
           D10: decoder.get(:transaction_currency),
           D11: decoder.get(:tw_payment_info, :merchant_info)[17..-1],
-        }.each {|k, v| "#{k.to_s}=#{v}"}.join('&')
+        }.map {|k, v| "#{k.to_s}=#{v}"}.join('&')
 
         "#{scheme}#{host}/#{path}?#{query}"
       end
