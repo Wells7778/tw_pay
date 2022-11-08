@@ -26,6 +26,10 @@ module TwPay
         DateTime.new(year.to_i, month.to_i, day.to_i, hour.to_i, minute.to_i, second.to_i, '+8').to_i
       end
 
+      def success?
+        paid?
+      end
+
       def paid?
         pay_status == 'S'
       end
