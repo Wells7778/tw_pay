@@ -17,7 +17,7 @@ module TwPay
       end
 
       def txn_type
-        'CANCEL'
+        'REFUND'
       end
 
       def to_hash
